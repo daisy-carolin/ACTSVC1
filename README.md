@@ -1,4 +1,4 @@
-#Authentication using JWT Tokens between React and Django using Simple JWT
+# Authentication using JWT Tokens between React and Django using Simple JWT
 
   * The purpose of this project is to implement user authentication using JWT (JSON Web Tokens) between a React frontend and a Django backend. The authentication process will be handled using the Simple JWT library in Django.We are going to take advantage of Django Rest Framework and other in built modules
 
