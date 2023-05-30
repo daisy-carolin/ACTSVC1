@@ -4,12 +4,6 @@
 
 # Core Technologies and Libraries Used
 
-Technology/Library | Description 
---- | --- |
-*Django REST Framework* | *Api building framework for django*
-*SQLite3* | *A database service*
-*Django* | *A python framework for building serverside applications*
-*React* | *A Javascript library for building client side applications*
 
   
 
