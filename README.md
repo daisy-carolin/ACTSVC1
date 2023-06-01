@@ -20,7 +20,7 @@ This is a step by step guide on how to set up the codebase locally
 Clone the project
 ----------------------
 ``` shellgit@github.com:daisy-carolin/ACTSVC.git
-[git clone https://github.com/daisy-carolin/ACTSVC1.git)
+git clone https://github.com/daisy-carolin/ACTSVC1.git
 ```
 Set up your virtual environment
 ----------------------
