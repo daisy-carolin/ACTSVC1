@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'authentication',
     'rest_framework',
+    "rest_framework.authtoken",
     'corsheaders',
-  
 ]
 
 MIDDLEWARE = [
@@ -38,11 +38,19 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
+    'two_factor.middleware.threadlocals.ThreadLocals',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'authentication.custom_auth_backend.PasswordlessAuthBackend',
+)
+
 
 ROOT_URLCONF = 'authentication_backend.urls'
 
@@ -162,13 +170,22 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'your_email_host'
-DEFAULT_FROM_EMAIL = 'your_default_from_email'
-EMAIL_USE_TLS = True  # Set to False if not using TLS
-EMAIL_PORT = 587  # Set to your email server port
-EMAIL_HOST_USER = 'your_email_host_user'
-EMAIL_HOST_PASSWORD = 'your_email_host_password'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'your_email_host'
+DEFAULT_FROM_EMAIL = 'admin@actsvc1.com'
+# EMAIL_USE_TLS = True  # Set to False if not using TLS
+# EMAIL_PORT = 587  # Set to your email server port
+# EMAIL_HOST_USER = 'your_email_host_user'
+# EMAIL_HOST_PASSWORD = 'your_email_host_password'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Twilio Settings
+ACCOUNT_SID='AC7b65736a2d3a14a2385fd3c7eb1a70ae'
+AUTH_TOKEN='edde7c20d4cad6522c3e3fbae3ee2140'
+COUNTRY_CODE='+254'
+TWILIO_PHONE_NUMBER='+12545408258'
+
 
 # Custom user model
 AUTH_USER_MODEL = 'authentication.UserAccount'

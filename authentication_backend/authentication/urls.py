@@ -1,5 +1,5 @@
 from django.urls import path
-from authentication.views import SignupView, RetrieveUserView, VerifyOTP
+from authentication.views import SignupView, RetrieveUserView, VerifyOTP, ActivateUserEmail
 from rest_framework_simplejwt.views import TokenVerifyView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -13,6 +13,8 @@ urlpatterns = [
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('verify_otp/', VerifyOTP.as_view(),name='verify_otp'),
     path('me/', RetrieveUserView.as_view(),name='retrieve_user'),
+    path('api/users/activate/<int:user_id>/<str:confirmation_token>', ActivateUserEmail.as_view(), name='user_email_activation'),
+    # path('otp/<str:uid>/', otpVerify, name='otp')
 ]
 
 
